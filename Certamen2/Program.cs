@@ -19,9 +19,10 @@ namespace ConsoleApp4
             Console.WriteLine("*****************");
             Console.WriteLine("   Bienvenido");
             Console.WriteLine("*****************");
-            Console.WriteLine("*****************");
-            Console.WriteLine("   Ejercicio 1");
-            Console.WriteLine("*****************");
+            Console.WriteLine();
+            Console.WriteLine("-----------------");
+            Console.WriteLine("*** Ejercicio 1 ***");
+            Console.WriteLine("-----------------");
             Console.WriteLine();
 
 
@@ -37,12 +38,12 @@ namespace ConsoleApp4
             {
                 Console.WriteLine(arreglo[i]);
             }
-            Console.WriteLine();
+            Console.WriteLine("**************");
             Console.WriteLine("Ingrese otro valor:");
             numero = int.Parse(Console.ReadLine());
 
 
-            Console.WriteLine();
+            Console.WriteLine("**************");
             Console.WriteLine("Valores mayores que " + numero);
 
             for (int i = 0; i < arreglo.Length; i++)
@@ -55,7 +56,40 @@ namespace ConsoleApp4
 
             }
 
+            Console.WriteLine();
+            Console.WriteLine("-------------------------");
+            Console.WriteLine();
+            Console.WriteLine("****** Ejercicio 2 ******");
+            Console.WriteLine();
+            Console.WriteLine("-------------------------");
 
+            string[,] matriz = new string[8, 8];
+
+            int aux = matriz.GetLength(0) / 2;
+
+            for (int i = 0; i < matriz.GetLength(0); i++)
+            {
+                for (int j = 0; j < matriz.GetLength(0); j++)
+                {
+
+                    if (i == aux || i == aux - 1)
+                    {
+                        matriz[i, j] = "1";
+                    }
+                    else if (j == aux || j == aux - 1)
+                    {
+                        matriz[i, j] = "1";
+                    }
+                    else
+                    {
+                        matriz[i, j] = "0";
+                    }
+
+                }
+
+            }
+            imprimir(matriz);
+            Console.WriteLine();
 
             Console.WriteLine();
             Console.WriteLine("-------------------------");
@@ -92,15 +126,22 @@ namespace ConsoleApp4
                 }
             }
 
-
-
-
-
-
-
-           
             Console.ReadKey();
+            Console.WriteLine();
             
+        }
+
+        static void imprimir(string[,] matriz)
+        {
+            for (int i = 0; i < matriz.GetLength(0); i++)
+            {
+                for (int j = 0; j < matriz.GetLength(0); j++)
+                {
+                    Console.Write(matriz[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.ReadKey();
         }
 
     }
